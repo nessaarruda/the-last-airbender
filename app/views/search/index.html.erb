@@ -1,6 +1,8 @@
 <h1 class='count'>All <%= @count %> Members</h1>
-<h2 class='name'>Name: <%= @name %></h2>
-<h2 class='photo'>Avatar: <%= @photo %></h2>
-<h2 class='allies'>Allies: <%= @allies %></h2>
-<h2 class='enemies'>Enemies: <%= @enemies %></h2>
-<h2 class='affiliations'>Affiliations: <%= @affiliations %></h2>
+<% @members.each do |member| %>
+<h2 class='name'>Name: <%= member['name'] %></h2>
+<h2 class='photo'>Avatar: <%= member['photo'] %></h2>
+<h2 class='allies'>Allies: <%= member['allies'] %></h2>
+<h2 class='enemies'>Enemies: <%= member['enemies'] %></h2>
+<h2 class='affiliations'>Affiliations: <%= member['affiliations'] %></h2>
+<% end %>

@@ -1,10 +1,9 @@
 class SearchController < ApplicationController
 
   def index
-    @members = MembersFacade.all_members
-    # conn = Faraday.new('https://last-airbender-api.herokuapp.com/api/v1/')
-    # response = conn.get('characters?affiliation=Fire+Nation')
-    # @members = JSON.parse(response.body, symbolize_keys: true)
+    nation = 'Fire Nation'# need to use params[:nation]
+    @members = MembersFacade.get_member(nation)
+    # @members = MembersFacade.all_members
     # @members.each do |member|
     #   @count = @members.size
     #   @name = member['name']
