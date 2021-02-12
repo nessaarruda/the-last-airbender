@@ -14,4 +14,19 @@ class SearchController < ApplicationController
       require "pry"; binding.pry
     end
   end
+
+  def all_pages
+    counter = 5
+    page = 1
+    final_result = []
+    while counter != 0 do
+    conn = Faraday.new('https://last-airbender-api.herokuapp.com/api/v1/')
+    response = conn.get("characters?affiliation=Fire+Nation?page=#{page}")
+    final_result << response
+    counter -= 1
+    page += 1
+    end
+    require "pry"; binding.pry
+    @members = JSON.parse(response.body, symbolize_keys: true)
+  end
 end
