@@ -12,12 +12,11 @@ describe 'Search' do
             click_button('Search For Members')
 
             expect(current_path).to eq(search_path)
-            expect(page).to have_content('100')
-            expect(page).to have_content('Details for the first 25 members')
-            expect(page).to have_content(member.name)
-            expect(page).to have_content(member.alias)
-            expect(page).to have_content(member.enemies)
-            expect(page).to have_content(member.affiliations)
+            expect(page).to have_css('.count')
+            expect(page).to have_css('.name')
+            expect(page).to have_css('.allies')
+            expect(page).to have_css('.enemies')
+            expect(page).to have_css('.affiliations')
           end
         end
       end
